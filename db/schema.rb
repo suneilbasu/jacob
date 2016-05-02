@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502185809) do
+ActiveRecord::Schema.define(version: 20160502200724) do
 
   create_table "devices", force: :cascade do |t|
     t.string   "device_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160502185809) do
     t.boolean  "upgrade_request",                              default: false
     t.boolean  "payment_received",                             default: false
     t.decimal  "device_upgrade_cost", precision: 10, scale: 2, default: 0.0
+    t.boolean  "paid_for",                                     default: false
   end
 
   create_table "searches", force: :cascade do |t|

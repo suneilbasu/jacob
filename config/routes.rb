@@ -1,5 +1,11 @@
 
 Rails.application.routes.draw do
+  get 'accounting/index'
+
+  get 'accounting/new'
+
+  get 'accounting/show'
+
 devise_for :users, :controllers => { registrations: 'registrations' }
   get 'welcome/index'
   get 'calendar_page/index'

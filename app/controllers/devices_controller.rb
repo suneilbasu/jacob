@@ -1,7 +1,7 @@
 class DevicesController < ApplicationController
 before_action :authenticate_user!
   def index
-  
+
     if current_user.admin?
       @devices = Device.all
     else
@@ -15,6 +15,9 @@ before_action :authenticate_user!
       @devices = Device.where(user_id: current_user.id).find(params[:id])
     end
   end
+
+
+
   def edit
     authorize Device
   	@devices = Device.find(params[:id])

@@ -8,6 +8,8 @@ class Device < ActiveRecord::Base
     validates :device_manufacturer, presence: {message:" is missing"}
     validates :user_id, presence: {message:" is missing"}
 
+    scope :unpaid, -> {where(paid_for: false)}
+    scope :wanted, -> {where('device_upgrade_cost  > ?',0)}
   belongs_to :user
 
   def reaching_end

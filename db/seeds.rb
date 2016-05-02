@@ -29,4 +29,6 @@ device_type: 'Phone',
 device_cost: '123.10',
 device_model: '6S',
 device_manufacturer: 'Apple',
+expiry_date: '2016-06-01',
+start_date: '2015-07-01',
 user_id: '1')

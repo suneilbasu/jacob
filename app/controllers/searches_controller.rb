@@ -2,13 +2,17 @@ class SearchesController < ApplicationController
 before_action :authenticate_user!
 	def new
 		@search = Search.new
+		@search2 = Search.new
 		@device_type = Device.uniq.pluck(:device_type)
+		@device_type2 = Device.uniq.pluck(:device_type)
     @device_manufacturer = Device.uniq.pluck(:device_manufacturer)
+		@device_manufacturer2 = Device.uniq.pluck(:device_manufacturer)
 		@user_id = User.uniq.pluck(:id)
 	end
 
 	def create
 		@search = Search.create(search_params)
+		@search2 = Search.create(search_params)
 		redirect_to @search
 	end
 

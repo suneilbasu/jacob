@@ -8,6 +8,15 @@ class AccountingController < ApplicationController
     end
   end
 
+  def editing_device
+  	@devices = Device.find(params[:id])
+  end
+  def edit
+    @devices = Device.find(params[:id])
+    if @devices.update(device_params)
+      redirect_to :action => 'accounts'
+    end
+  end
   def new
   end
 

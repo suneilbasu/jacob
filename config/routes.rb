@@ -1,6 +1,6 @@
 
 Rails.application.routes.draw do
-  get 'accounting/index'
+  get 'accounting/index' 
 
   get 'accounting/new'
 

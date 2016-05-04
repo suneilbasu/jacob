@@ -1,4 +1,4 @@
-<h1>Accounting#index</h1>
+<h1>Accountin#index</h1>
 <div class='container'>
       <table class="table1" >
       	<tr>
@@ -15,13 +15,15 @@
       	<td class="type"><%= n.device_type %> </td>
       	<td class="cost"><%= number_to_currency(n.device_upgrade_cost,:unit=> "£") %></td>
         <td>
-
-          <button>&#9668;</button>
+          <% form_tag(edit_accounting_path, :method=>'get', :paid_for => true) do %>
+            <%= submit_tag "-" %>
+          <% end %>
         </td>
       </tr>
       <% end %>
       </table>
+      <%= number_to_currency(a = Device.unpaid.wanted.sum(:device_upgrade_cost),:unit=> "£") %>
+
     </div>
 
-    <%= number_to_currency(a = Device.unpaid.wanted.sum(:device_upgrade_cost),:unit=> "£") %>
 </div>

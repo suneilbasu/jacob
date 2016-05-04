@@ -16,8 +16,6 @@ before_action :authenticate_user!
     end
   end
 
-
-
   def edit
     authorize Device
   	@devices = Device.find(params[:id])

@@ -14,17 +14,18 @@
         <td class ="name"><%= n.user.full_name %></td>
       	<td class="type"><%= n.device_type %> </td>
       	<td class="cost"><%= number_to_currency(n.device_upgrade_cost,:unit=> "£") %></td>
-        <td>
+        <td class="jim">
           <%= form_for n do |j| %>
             <%= j.check_box :paid_for %>
-            <%= j.submit "-" %>
-          <% end %>.
+          <% end %>
         </td>
       </tr>
       <% end %>
       </table>
+      <h4>Total Expected Funds</h4>
       <%= number_to_currency(a = Device.unpaid.wanted.sum(:device_upgrade_cost),:unit=> "£") %>
-
+      <h4>Total Recieved Revenue from Upgrades</h4>
+      <%= number_to_currency(a = Device.paid.wanted.sum(:device_upgrade_cost),:unit=> "£") %>
     </div>
 
 </div>

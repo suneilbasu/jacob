@@ -48,7 +48,6 @@ end
 
 private
 def device_params
-
   params.require(:device).permit(:device_name,:device_manufacturer,:device_type,:device_model,:user_id,:start_date,:expiry_date,:device_cost, :upgrade_request, :device_upgrade_cost, :paid_for)
 end
 end

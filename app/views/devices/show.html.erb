@@ -111,21 +111,27 @@
              <td><b>The Lifetime of the Device in days:</b></td>
              <td><%= life_time %></td>
            </tr>
-           <tr><% if @devices.upgrade_request == false %>
-             <td><b>The Cost to Upgrade Today:</b></td>
-             <td><%=  number_to_currency(upgrade_cost,:unit => "£") %></td>
-           </tr>
            <tr>
-             <td></td>
-             <td style="text-align:right"><%=  form_for(@devices) do |f|%>
-                 <%= f.hidden_field :device_upgrade_cost, :value=> upgrade_cost %>
-                 <%= f.check_box :upgrade_request %>
-                 <%= f.submit "+" %>
-                 <% end %>
-                <% else %>
-                <td><%= "You have requested an upgrade for this device" %></td>
-                <% end %>
-               </td>
+             <% if @devices.upgrade_request == false && @devices.paid_for == false %>
+               <td><b>The Cost to Upgrade Today:</b></td>
+               <td><%=  number_to_currency(upgrade_cost,:unit => "£") %></td>
+             </tr>
+             <tr>
+                 <td>do you want to buy? </td>
+               <td style="text-align:right">
+                  <%=  form_for(@devices) do |f|%>
+                     <%= f.hidden_field :device_upgrade_cost, :value=> upgrade_cost %>
+                     <%= f.check_box :upgrade_request %>
+
+                     </td>
+                  <% end %>
+              <% elsif @devices.upgrade_request == true && @devices.paid_for == false %>
+                <td>processing your request to purchase </td>
+                <td></td>
+              <% else %>
+                <td>You have purchased this device </td>
+                <td></td>
+            <% end %>
           </tr>
        </tbody>
  </table>

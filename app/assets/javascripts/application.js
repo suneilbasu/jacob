@@ -17,15 +17,8 @@
 //= require bootstrap-sprockets
 //= require_tree .
 $(document).ready(function(){
-     colSum();
+  $(':checkbox').change(function(){
+      console.log("ch");
+      this.form.submit();
+  });
 });
-
-function colSum() {
-    var sum=0;
-    //iterate through each input and add to sum
-    $('td').each(function() {
-            sum += parseInt($(this).text());
-    });
-    //change value of total
-    $('#mySum').html(sum);
-}

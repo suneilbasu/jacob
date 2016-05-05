@@ -1,7 +1,6 @@
-console.log("sd");
-var sum = 0.0;
-$('.cost').each(function()
-{
-    sum += parseFloat($(this).text());
+$(document).ready(function(){
+  $("#edit_device").change(function(){
+      console.log("ch");
+      this.form.submit();
+  });
 });
-alert(sum);

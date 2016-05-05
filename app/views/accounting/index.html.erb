@@ -15,9 +15,10 @@
       	<td class="type"><%= n.device_type %> </td>
       	<td class="cost"><%= number_to_currency(n.device_upgrade_cost,:unit=> "£") %></td>
         <td>
-          <% form_tag(edit_accounting_path, :method=>'get', :paid_for => true) do %>
-            <%= submit_tag "-" %>
-          <% end %>
+          <%= form_for n do |j| %>
+            <%= j.check_box :paid_for %>
+            <%= j.submit "-" %>
+          <% end %>.
         </td>
       </tr>
       <% end %>

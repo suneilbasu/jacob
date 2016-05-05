@@ -13,13 +13,19 @@ class AccountingController < ApplicationController
   end
   def edit
     @devices = Device.find(params[:id])
-    if @devices.update(device_params)
-      redirect_to :action => 'accounts'
-    end
+
   end
-  def new
+  def update
+    @device = Device.find(params[:id])
+    if @device.update(accounts_params)
+      redirect_to :action=> 'index'
+    end
   end
 
   def show
+  end
+
+  def accounts_params
+    params.require(:device).permit(:paid_for)
   end
 end

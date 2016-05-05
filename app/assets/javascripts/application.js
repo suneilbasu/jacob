@@ -15,10 +15,10 @@
 //= require turbolinks
 //= require bootstrap-datepicker
 //= require bootstrap-sprockets
+//= require jquery.turbolinks
 //= require_tree .
 $(document).ready(function(){
   $(':checkbox').change(function(){
-      console.log("ch");
       this.form.submit();
   });
 });
